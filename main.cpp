@@ -47,11 +47,19 @@ void trimWhiteSpaceFiles(const std::filesystem::path &path, size_t &spaceRemoved
         outFile << processedLine << '\n';
 }
 
+bool isFile(const std::string &path) {
+    std::ifstream f(path.c_str());
+    return f.good();
+}
+
 int main(int ac, char **av) {
     if (ac != 2)
         return -1;
-    std::vector<std::filesystem::path> files = get_files(av[1]);
-
+    std::vector<std::filesystem::path> files;
+    if (!isFile(av[1]))
+        files = get_files(av[1]);
+    else
+        files.emplace_back(av[1]);
     std::cout << "Found " << files.size() << " files :" << std::endl;
     size_t totalSpaceRemoved = 0;
     for (const std::filesystem::path &file : files)

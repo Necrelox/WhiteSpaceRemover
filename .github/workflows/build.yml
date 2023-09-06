@@ -54,5 +54,3 @@ jobs:
         with:
           name: executable-${{ runner.os }}
           path: ${{ env.path }}
-
-

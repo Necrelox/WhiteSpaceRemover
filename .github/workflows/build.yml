@@ -36,11 +36,23 @@ jobs:
         run: |
           mkdir build
           cd build
-          cmake ..
-          cmake --build .
+          cmake .. -DCMAKE_BUILD_TYPE=Release
+          cmake --build . --config Release
+
+      - name: Set Executable Path
+        id: executable-path
+        shell: bash
+        run: |
+          if [[ "${{ runner.os }}" == "Windows" ]]; then
+            echo "path=build/Release/WhiteSpaceRemover.exe" >> $GITHUB_ENV
+          else
+            echo "path=build/WhiteSpaceRemover" >> $GITHUB_ENV
+          fi
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
           name: executable-${{ runner.os }}
-          path: build/WhiteSpaceRemover
+          path: ${{ env.path }}
+
+

@@ -23,6 +23,3 @@ bool PathProcessor::isDirectory(const std::string &path) const {
     return std::filesystem::is_directory(std::filesystem::path(path));
 }
 
-
-
-

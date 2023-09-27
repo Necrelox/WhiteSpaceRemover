@@ -1,23 +1,35 @@
-# WhiteSpaceRemover
+# 🧹 WhiteSpaceRemover
 
-## Description
-This program efficiently trims trailing white spaces from each line within a file.
+## 📝 Description
+`WhiteSpaceRemover` est un programme conçu pour supprimer les espaces blancs en fin de ligne dans chaque fichier.
 
-It recursively processes all files within a directory and its subdirectories.
+Initialement développé pour répondre à un besoin immédiat, le code, maintenant amélioré, est plus efficace et offre encore des possibilités d'amélioration et d'extension.
 
-Developed to address an immediate need, the code is straightforward and offers room for enhancement
+Il inclut également une option pour générer une bibliothèque partagée ou statique.
 
-*It should work on any system.*
-## Setup (For dev)
+*🌐 Il devrait fonctionner sur n'importe quel système.*
+
+## 🛠️ Setup (Pour le développement)
+Pour construire le programme :
 ```sh
 mkdir build && cd build && cmake .. && make
 ```
-## Setup
-Downloas here : [Releases](https://github.com/Necrelox/WhiteSpaceRemover/releases)
 
-## Usage
-*path_dir is an absolute path*
-
+### 🏗️ Options de Construction
+Pour construire une bibliothèque partagée, utilisez l'option `BUILD_SHARED_LIB` :
 ```sh
-./WhiteSpaceRemover <path_dir>
+cmake .. -DBUILD_SHARED_LIB=ON
+```
+
+Pour construire une bibliothèque statique, utilisez l'option `BUILD_STATIC_LIB` :
+```sh
+cmake .. -DBUILD_STATIC_LIB=ON
+```
+
+## ⬇️ Setup (Pour les utilisateurs)
+Téléchargez ici : [Releases](https://github.com/Necrelox/WhiteSpaceRemover/releases)
+
+## 🖥️ Usage
+```sh
+./WhiteSpaceRemover <path>
 ```
